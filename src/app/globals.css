@@ -1,0 +1,824 @@
+:root {
+  /* LIGHT MODE (Neo-Brutalism) */
+  --bg-color: #f8fafc;
+  --bg-card: #ffffff;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --accent-cyan: #2563eb;
+  --accent-purple: #7c3aed;
+  --success: #059669;
+  --danger: #dc2626;
+  --warning: #d97706;
+  --border-color: rgba(15, 23, 42, 0.2);
+  --border-glass: rgba(255, 255, 255, 0.6);
+  --shadow-base: 0 4px 20px rgba(15, 23, 42, 0.08);
+  --shadow-hover: 0 8px 30px rgba(15, 23, 42, 0.15);
+}
+
+.dark {
+  /* DARK MODE (Neo-Brutalism Chrome/Cyan) */
+  --bg-color: #0f172a;
+  --bg-card: #1e293b;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --accent-cyan: #00f0ff;
+  --accent-purple: #8b5cf6;
+  --success: #10b981;
+  --danger: #ef4444;
+  --warning: #f59e0b;
+  --border-color: rgba(0, 240, 255, 0.3);
+  --border-glass: rgba(255, 255, 255, 0.05);
+  --shadow-base: 0 4px 24px rgba(0, 240, 255, 0.1);
+  --shadow-hover: 0 8px 32px rgba(0, 240, 255, 0.25);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  min-height: 100vh;
+  width: 100vw;
+  max-width: 100%;
+  overflow-x: hidden;
+  /* Subtle grid background */
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Neo-Brutalism Utilities */
+.app-container {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.glass-panel {
+  background: var(--bg-card);
+  border: 1px solid var(--border-glass);
+  border-radius: 16px;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 24px;
+  box-shadow: var(--shadow-base);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-panel:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--border-color);
+}
+
+/* Neon Text */
+.text-cyan {
+  color: var(--accent-cyan);
+}
+
+.text-purple {
+  color: var(--accent-purple);
+}
+
+.text-success {
+  color: var(--success);
+}
+
+.text-danger {
+  color: var(--danger);
+}
+
+.text-warning {
+  color: var(--warning);
+}
+
+.text-secondary {
+  color: var(--text-secondary);
+}
+
+.glow-text-cyan {
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
+}
+
+/* Neo-Brutalist Buttons -> Fluid Futuristic Buttons */
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent-cyan) 0%, #0099ff 100%);
+  color: #000;
+  border: none;
+  font-weight: 800;
+  padding: 12px 24px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 15px rgba(0, 240, 255, 0.3);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.dark .btn-primary {
+  box-shadow: 0 4px 15px rgba(0, 240, 255, 0.2);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 240, 255, 0.5);
+}
+
+.btn-secondary {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  padding: 12px 24px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow-base);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-transform: uppercase;
+}
+
+.btn-secondary:hover {
+  border-color: var(--accent-cyan);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.btn-linear-icon {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+  padding: 8px;
+  border-radius: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow-base);
+}
+
+.btn-linear-icon:hover {
+  border-color: var(--accent-cyan);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Layout Utilities */
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.grid-cols-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.grid-cols-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+}
+
+/* Micro-animations */
+@keyframes pulseGlow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 240, 255, 0.4);
+  }
+
+  70% {
+    box-shadow: 0 0 0 10px rgba(0, 240, 255, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 240, 255, 0);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2s infinite;
+}
+
+/* Layout structural classes */
+.app-container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  max-width: 100%;
+  overflow: hidden;
+  /* This hides horizontal and vertical overflow on the main shell */
+}
+
+.sidebar {
+  width: 260px;
+  background: rgba(10, 14, 23, 0.8);
+  border-right: 1px solid var(--border-glass);
+  padding: 24px 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.header {
+  height: 80px;
+  border-bottom: 1px solid var(--border-glass);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  background: rgba(10, 14, 23, 0.5);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.page-container {
+  padding: 32px;
+  flex: 1;
+}
+
+/* Badges */
+.badge {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-success {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--success);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.badge-danger {
+  background: rgba(239, 68, 68, 0.15);
+  color: var(--danger);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.badge-warning {
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--warning);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.badge-cyan {
+  background: rgba(0, 240, 255, 0.15);
+  color: var(--accent-cyan);
+  border: 1px solid rgba(0, 240, 255, 0.3);
+}
+
+/* Typography */
+h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.hero-container {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+}
+
+/* Landing Page Mechanism Grids */
+.mechanism-grid {
+  display: grid;
+  grid-template-columns: minmax(300px, 1fr) 1fr;
+  padding: 40px;
+}
+
+.mechanism-grid-reverse {
+  grid-template-columns: 1fr minmax(300px, 1fr);
+}
+
+.mechanism-card-bg {
+  background: var(--bg-card);
+  padding: 24px;
+  border-radius: 4px;
+  border: 2px solid var(--border-color);
+  box-shadow: var(--shadow-base);
+}
+
+
+/* =====================================================
+   DESKTOP-ONLY: show sidebar, hide mobile nav
+   ===================================================== */
+@media (min-width: 769px) {
+  .mobile-nav-bar {
+    display: none !important;
+  }
+}
+
+/* =====================================================
+   TABLET breakpoint (1024px)
+   ===================================================== */
+@media (max-width: 1024px) {
+  .grid-cols-3 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* =====================================================
+   MOBILE breakpoint (768px and below)
+   ===================================================== */
+@media (max-width: 768px) {
+
+  /* ---- Layout Structure ---- */
+  .app-container {
+    flex-direction: column;
+    height: 100dvh !important;
+    overflow: hidden !important;
+  }
+
+  /* Hide desktop sidebar completely on mobile */
+  .sidebar {
+    display: none !important;
+  }
+
+  /* Show mobile bottom nav */
+  .mobile-nav-bar {
+    display: flex !important;
+  }
+
+  /* Main content takes full width, add bottom padding for nav bar */
+  .main-content {
+    width: 100% !important;
+    padding-bottom: 64px;
+    flex: 1 !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Page container padding adjustment */
+  .page-container {
+    padding: 12px;
+    min-height: max-content;
+  }
+
+  /* ---- Header Mobile ---- */
+  header {
+    height: auto !important;
+    min-height: 56px !important;
+    padding: 0 16px !important;
+    flex-wrap: nowrap !important;
+    gap: 10px !important;
+  }
+
+  /* Hide desktop header logo (sidebar has branding) */
+  .header-logo {
+    display: none !important;
+  }
+
+  /* Hide search bar on mobile to save space */
+  .header-search {
+    display: none !important;
+  }
+
+  /* Header right: compact row */
+  .header-right {
+    width: 100% !important;
+    justify-content: flex-end !important;
+    gap: 8px !important;
+  }
+
+  .header-left {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+
+  /* ---- Typography Mobile ---- */
+  h1 {
+    font-size: clamp(1.6rem, 6vw, 2rem) !important;
+  }
+
+  h2 {
+    font-size: clamp(1.3rem, 5vw, 1.7rem) !important;
+  }
+
+  h3 {
+    font-size: clamp(1.1rem, 4vw, 1.3rem) !important;
+  }
+
+  /* ---- Cards & Panels Mobile ---- */
+  .glass-panel {
+    padding: 14px !important;
+    border-width: 1px !important;
+    box-shadow: 2px 2px 0px var(--border-color) !important;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 10px 14px !important;
+    font-size: 0.85rem !important;
+  }
+
+  /* ---- Grid Overrides ---- */
+  .grid-cols-2,
+  .grid-cols-3 {
+    grid-template-columns: 1fr !important;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ---- AI Agent Chat Page Mobile ---- */
+  /* Force chat to single column, remove fixed height on mobile */
+  [style*="gridTemplateColumns"][style*="400px"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ---- BSC Trading Page Mobile ---- */
+  .bsc-trading-grid {
+    grid-template-columns: 1fr !important;
+    height: auto !important;
+    min-height: max-content !important;
+    overflow: visible !important;
+  }
+
+  .bsc-trading-chart-container {
+    min-height: 500px !important;
+  }
+
+  /* ---- Landing Page Mobile Fixes ---- */
+  .hero-title {
+    font-size: 2rem !important;
+  }
+
+  .hero-description {
+    font-size: 0.9rem !important;
+    padding: 0 8px !important;
+  }
+
+  .mechanism-grid,
+  .mechanism-grid-reverse {
+    grid-template-columns: 1fr !important;
+    padding: 16px !important;
+    gap: 24px !important;
+  }
+
+  .mechanism-card-bg {
+    order: 2 !important;
+  }
+
+  /* ---- Font size in terminal/chat ---- */
+  .font-space-mono {
+    font-size: 0.72rem !important;
+  }
+}
+
+/* =====================================================
+   MOBILE GLOBAL — Viewport Lock & Overflow Guard
+   ===================================================== */
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100vw;
+  touch-action: pan-y;
+  /* only allow vertical scroll, block horizontal */
+}
+
+/* =====================================================
+   MOBILE (768px and below)
+   ===================================================== */
+@media (max-width: 768px) {
+
+  /* --- Prevent overflow on all elements --- */
+  *,
+  *::before,
+  *::after {
+    max-width: 100%;
+    word-break: break-word;
+  }
+
+  /* Main app layout */
+  .app-layout,
+  .app-container {
+    flex-direction: column !important;
+  }
+
+  /* Desktop sidebar: HIDE on mobile — MobileNavBar takes over */
+  .sidebar {
+    display: none !important;
+  }
+
+  .sidebar-toggle {
+    display: none !important;
+  }
+
+  /* Show the dedicated mobile bottom nav bar */
+  .mobile-nav-bar {
+    display: flex !important;
+  }
+
+  /* Main content — safe scroll area */
+  .main-content {
+    width: 100% !important;
+    padding-bottom: 72px;
+    padding-left: 0 !important;
+    flex: 1 !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Page container padding */
+  .page-container {
+    padding: 12px !important;
+    min-height: max-content;
+    overflow-x: hidden !important;
+  }
+
+  /* ---- Header Mobile ---- */
+  header {
+    height: 56px !important;
+    min-height: 56px !important;
+    padding: 0 12px !important;
+    flex-wrap: nowrap !important;
+    overflow: hidden !important;
+  }
+
+  .header-logo {
+    font-size: 1rem !important;
+  }
+
+  .header-search {
+    display: none !important;
+  }
+
+  .header-right {
+    gap: 8px !important;
+    flex-shrink: 0;
+  }
+
+  /* Compress the BSC network badge on mobile */
+  .bsc-label-full {
+    display: none !important;
+    /* Hide 'Mainnet' text */
+  }
+
+  /* Hide notification bell on mobile to save space */
+  .notif-desktop {
+    display: none !important;
+  }
+
+  /* ---- Typography ---- */
+  h1 {
+    font-size: clamp(1.5rem, 5vw, 2rem) !important;
+  }
+
+  h2 {
+    font-size: clamp(1.2rem, 4.5vw, 1.6rem) !important;
+  }
+
+  h3 {
+    font-size: clamp(1rem, 4vw, 1.3rem) !important;
+  }
+
+  /* ---- Cards & Panels ---- */
+  .glass-panel {
+    padding: 14px !important;
+    border-width: 1px !important;
+    box-shadow: 2px 2px 0px var(--border-color) !important;
+    overflow: hidden !important;
+    /* Prevent content overflowing card */
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 10px 14px !important;
+    font-size: 0.82rem !important;
+  }
+
+  /* ---- Grid Overrides ---- */
+  .grid-cols-2,
+  .grid-cols-3 {
+    grid-template-columns: 1fr !important;
+  }
+
+  .dashboard-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ---- Responsive token/pool grids ---- */
+  [style*="gridTemplateColumns"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ---- AI Agent Chat Page ---- */
+  [style*="400px"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ---- BSC Trading Page ---- */
+  .bsc-trading-grid {
+    grid-template-columns: 1fr !important;
+    height: auto !important;
+    min-height: max-content !important;
+    overflow: visible !important;
+  }
+
+  .bsc-trading-chart-container {
+    min-height: 420px !important;
+  }
+
+  /* ---- Landing Page ---- */
+  .hero-title {
+    font-size: clamp(1.8rem, 7vw, 2.5rem) !important;
+  }
+
+  .hero-description {
+    font-size: 0.9rem !important;
+    padding: 0 8px !important;
+  }
+
+  .mechanism-grid,
+  .mechanism-grid-reverse {
+    grid-template-columns: 1fr !important;
+    padding: 16px !important;
+    gap: 24px !important;
+  }
+
+  .mechanism-card-bg {
+    order: 2 !important;
+  }
+
+  /* ---- Iframe / chart containers ---- */
+  iframe {
+    max-width: 100% !important;
+  }
+
+  /* ---- Footer Landing Page ---- */
+  footer {
+    padding: 32px 16px !important;
+  }
+
+  /* Font terminal/chat */
+  .font-space-mono {
+    font-size: 0.72rem !important;
+  }
+
+  /* ---- Terminal Chat List Mobile ---- */
+  .terminal-info-grid {
+    grid-template-columns: 1fr !important;
+    gap: 4px !important;
+  }
+
+  .terminal-info-grid>span:nth-of-type(even) {
+    margin-bottom: 8px;
+  }
+}
+
+/* =====================================================
+   SMALL MOBILE (375px and below - e.g. iPhone SE)
+   ===================================================== */
+@media (max-width: 375px) {
+  .page-container {
+    padding: 10px 8px;
+  }
+
+  header {
+    padding: 0 10px !important;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    font-size: 0.75rem !important;
+    padding: 7px 10px !important;
+  }
+
+  /* Extra compact pools list */
+  .glass-panel {
+    padding: 10px !important;
+  }
+}
+
+@keyframes packetFlow {
+  0% {
+    left: -5%;
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  90% {
+    opacity: 1;
+  }
+
+  100% {
+    left: 105%;
+    opacity: 0;
+  }
+}
+
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* =====================================================
+   TERMINAL INFO GRID (Landing Page)
+   ===================================================== */
+.terminal-info-grid {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 8px 16px;
+  align-items: baseline;
+}
+
+.terminal-info-grid>span:nth-of-type(even) {
+  text-align: right;
+}
+
+@media (max-width: 768px) {
+  .terminal-info-grid {
+    grid-template-columns: 1fr !important;
+    gap: 4px !important;
+  }
+
+  .terminal-info-grid>span:nth-of-type(even) {
+    text-align: left;
+    margin-bottom: 8px;
+  }
+}
